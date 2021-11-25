@@ -43,11 +43,12 @@ function showProducts() {
     /* displaying products */
 
     console.log(productList);
+    let i = 1;
 
     for(const product of productList){
         // productElement - product li HTML element
         // product object of Product class cointaing data
-        let i = 1;
+        
         console.log(product);
 
         const productElement = document.createElement('li');
@@ -55,6 +56,7 @@ function showProducts() {
 
         const productNumber = document.createElement('p');
         productNumber.textContent = i;
+        productNumber.classList.add('product_property');
         productElement.appendChild(productNumber);
 
         for(prop in product) {
@@ -66,6 +68,7 @@ function showProducts() {
 
         const deleteBtn = document.createElement('button');
         deleteBtn.classList.add('delete_btn');
+        deleteBtn.textContent = 'delete';
         productElement.appendChild(deleteBtn);
 
         paragon.appendChild(productElement);
@@ -73,6 +76,8 @@ function showProducts() {
         i++;
 
     }
+
+    listenDeleteBtns();
 
 }
 
@@ -100,9 +105,34 @@ function addProduct() {
 
     // Local storage to do
 
+    updateLocalStorage();
+
 
 }
 
+function deleteProduct(e) {
+    console.log('delete');
+    console.log(e.target.parentNode);
+
+    const id = parseInt(e.target.parentNode.firstChild.textContent, 10);
+    console.log(e.target.parentNode.firstChild)
+    for(let i = 0; i < productList.length; i++) {
+        if(id - 1 === i){
+            productList.splice(i, 1);
+            break;
+        }
+    }
+
+    showProducts();
+    updateLocalStorage();
+}
+
+
+function listenDeleteBtns() {
+    /* set listening on delete Task btns */
+    deleteTaskBtns = document.querySelectorAll('.delete_btn').forEach(btn =>
+    btn.addEventListener('click', deleteProduct));
+}
 
 
 /** Local storage **/
@@ -121,4 +151,4 @@ function loadDataFromLocalStorage() {
 }
 
 /** MAIN **/
-
+//loadDataFromLocalStorage();
