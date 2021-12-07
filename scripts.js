@@ -20,13 +20,13 @@ function showProducts() {
 
     
     const list = document.createElement('ul');
+    list.classList.add('list');
     paragon.appendChild(list);
 
     /* displaying labels */
 
     const productLabels = document.createElement('li');
-    productLabels.classList.add('product');
-    productLabels.classList.add('labels');
+    productLabels.classList.add('product_labels');
 
 
     const labels = ['number', 'name', 'price', 'amount', 'sum'];
@@ -37,7 +37,8 @@ function showProducts() {
         productLabels.appendChild(p);
     }
 
-    paragon.appendChild(productLabels);
+    list.appendChild(productLabels);
+    
 
 
     /* displaying products */
@@ -55,7 +56,7 @@ function showProducts() {
         productElement.classList.add('product');
 
         const productNumber = document.createElement('p');
-        productNumber.textContent = i;
+        productNumber.textContent = i + '.';
         productNumber.classList.add('product_property');
         productElement.appendChild(productNumber);
 
@@ -71,7 +72,8 @@ function showProducts() {
         deleteBtn.textContent = 'delete';
         productElement.appendChild(deleteBtn);
 
-        paragon.appendChild(productElement);
+        list.appendChild(productElement)
+        ///paragon.appendChild(productElement);
 
         i++;
 

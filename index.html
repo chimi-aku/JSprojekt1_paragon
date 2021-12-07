@@ -4,21 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;700&display=swap" rel="stylesheet">
+
+
+
     <title>Document</title>
 </head>
 <body>
     <main>
         <section class="add_section">
-            <label for="add_product_name">product name</label>
-            <input type="text" id="add_product_name">
-            <label for="add_product_price">product price</label>
-            <input type="text" id="add_product_price">
-            <label for="add_product_amount">amount</label>
-            <input type="number" id="add_product_amount">
+            <dib>
+                <label for="add_product_name">Name:</label>
+                <input type="text" id="add_product_name">
+            </dib>
+            <div>
+                <label for="add_product_price">Price:</label>
+                <input type="text" id="add_product_price">
+            </div>
+            <div>
+                <label for="add_product_amount">amount:</label>
+                <input type="number" id="add_product_amount">
+            </div>
             <button class="add_product_btn">add</button>
         </section>
         <div class="paragon">
-            
+            <ul class="list">
+                <li class="product_labels">
+                    <p class="product_label product_label_number">number</p>
+                    <p class="product_label product_label_name">name</p>
+                    <p class="product_label product_label_price">price</p>
+                    <p class="product_label product_label_amount">amount</p>
+                    <p class="product_label product_label_sum">sum</p>
+                    <p class="product_label product_label_delete"></p>
+                </li>
+
+
+            </ul>
         </div>
 
     </main>

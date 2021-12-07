@@ -1,0 +1,147 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+
+    font-family: 'Teko', sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    
+    
+}
+
+.add_section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10rem;
+    width: 100%;
+    
+}
+.add_section {
+    display: flex;
+}
+
+.add_section label {
+    text-transform: uppercase;
+    margin-right: 7px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.add_section input {
+    width: 12rem;
+    height: 4rem;
+    box-sizing: border-box;
+    border: 1px solid #ebebeb;
+    padding: 10px 15px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+button {
+    width: 12rem;
+    height: 4rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 1rem;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    outline: none;
+
+    background: #fff;
+    color: #999;
+    border: 2px solid #ebebeb;
+}
+
+.add_product_btn {
+    background: #329e5e;
+    color: #fff;
+}
+
+.paragon {
+    width: 100%;
+}
+
+.list {
+    list-style: none;
+    display: grid;
+    grid-auto-rows: minmax(5rem, auto);
+
+    
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+.list .product_labels p {
+    grid-row: 1;
+
+}
+
+.list li {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-content: center;
+    align-items: center;
+}
+
+.product_labels {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.list .product_label_number {
+    grid-column: 1;
+}
+
+.list .product_label_name {
+    grid-column: 2;
+}
+
+.list .product_label_price {
+    grid-column: 3;
+}
+
+.list .product_label_amount {
+    grid-column: 4;
+
+}
+
+.product_label_sum {
+    grid-column: 5;
+}
+
+.list .product_label_delete {
+    grid-column: 6;
+}
+
+
