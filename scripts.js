@@ -181,4 +181,5 @@ function validateAddProduct(name, price, amount) {
 }
 
 /** MAIN **/
-//loadDataFromLocalStorage();
+loadDataFromLocalStorage();
+showProducts();
