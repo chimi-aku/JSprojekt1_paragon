@@ -166,8 +166,10 @@ function validateAddProduct(name, price, amount) {
 
     try{
         if(name == null || name == '') throw 'name field is empty';
+        else if(parseInt(price, 10) <= 0) throw 'price is not positive number'
         else if(price == null || price == NaN || price == '') throw 'price field is empty'
         else if(!priceReg.test(price)) throw 'price is not a number'
+        else if(parseInt(amount, 10) <= 0) throw 'amount is not positive number'
         else if(amount == null || amount == NaN || amount == '') throw 'amount field is empty'
         else if(!priceReg.test(amount)) throw 'amount is not a number'
     }
@@ -183,3 +185,5 @@ function validateAddProduct(name, price, amount) {
 /** MAIN **/
 loadDataFromLocalStorage();
 showProducts();
+
+

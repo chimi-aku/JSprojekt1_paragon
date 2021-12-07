@@ -24,8 +24,8 @@ main {
     flex-direction: column;
     align-items: center;
     width: 60%;
-    
-    
+    overflow: hidden;
+   
 }
 
 #form_message {
@@ -101,6 +101,12 @@ button {
 
 .paragon {
     width: 100%;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
 .list {
