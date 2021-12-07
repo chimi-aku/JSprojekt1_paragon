@@ -50,7 +50,7 @@ function showProducts() {
         // productElement - product li HTML element
         // product object of Product class cointaing data
         
-        console.log(product);
+        //console.log(product);
 
         const productElement = document.createElement('li');
         productElement.classList.add('product');
@@ -67,11 +67,25 @@ function showProducts() {
             productElement.appendChild(p);
         }
 
+        const buttonsDiv = document.createElement('div');
+
         const deleteBtn = document.createElement('button');
         deleteBtn.classList.add('delete_btn');
         deleteBtn.textContent = 'delete';
-        productElement.appendChild(deleteBtn);
+        buttonsDiv.appendChild(deleteBtn);
 
+        const arrowUpBtn = document.createElement('i');
+        arrowUpBtn.classList.add('arrow');
+        arrowUpBtn.classList.add('up');
+        buttonsDiv.appendChild(arrowUpBtn);
+
+        const arrowDownBtn = document.createElement('i');
+        arrowDownBtn.classList.add('arrow');
+        arrowDownBtn.classList.add('down');
+        buttonsDiv.appendChild(arrowDownBtn);
+
+
+        productElement.appendChild(buttonsDiv)
         list.appendChild(productElement)
         ///paragon.appendChild(productElement);
 
@@ -80,7 +94,8 @@ function showProducts() {
     }
 
     listenDeleteBtns();
-
+    listenUpArrows();
+    listenDownArrows();
 }
 
 function addProduct() {
@@ -118,11 +133,7 @@ function addProduct() {
 }
 
 function deleteProduct(e) {
-    console.log('delete');
-    console.log(e.target.parentNode);
-
-    const id = parseInt(e.target.parentNode.firstChild.textContent, 10);
-    console.log(e.target.parentNode.firstChild)
+    const id = parseInt(e.target.parentNode.parentNode.firstChild.textContent, 10);
     for(let i = 0; i < productList.length; i++) {
         if(id - 1 === i){
             productList.splice(i, 1);
@@ -139,6 +150,54 @@ function listenDeleteBtns() {
     /* set listening on delete Task btns */
     deleteTaskBtns = document.querySelectorAll('.delete_btn').forEach(btn =>
     btn.addEventListener('click', deleteProduct));
+}
+
+function swapProducts(product1Idx, product2Idx) {
+    const swap = productList[product1Idx];
+    productList[product1Idx] = productList[product2Idx];
+    productList[product2Idx] = swap;
+}
+
+function moveProductUp(e) {
+    //console.log('move up');
+    //console.log(e.target.parentNode.parentNode);
+
+    const id = parseInt(e.target.parentNode.parentNode.firstChild.textContent, 10);
+    if(id < 1) {
+        return 0;
+    }
+    const index = id - 1;
+    //console.log(productList[index]);
+
+    swapProducts(index, index - 1)
+    showProducts();
+}
+
+function listenUpArrows() {
+    /* set listening on up arrows  */
+    arrowUpBtn = document.querySelectorAll('.up').forEach(btn =>
+    btn.addEventListener('click', moveProductUp));
+}
+
+function moveProductDown(e) {
+    //console.log('move down');
+    //console.log(e.target.parentNode.parentNode);
+
+    const id = parseInt(e.target.parentNode.parentNode.firstChild.textContent, 10);
+    if(id >= productList.length) {
+        return 0;
+    }
+    const index = id - 1;
+    //console.log(productList[index]);
+
+    swapProducts(index, index + 1)
+    showProducts();
+}
+
+function listenDownArrows() {
+    /* set listening on down arrows  */
+    arrowDownBtn = document.querySelectorAll('.down').forEach(btn =>
+    btn.addEventListener('click', moveProductDown));
 }
 
 
