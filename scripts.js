@@ -94,6 +94,11 @@ function addProduct() {
     const price = inputProductPrice.value;
     const amount = inputProductAmount.value;
 
+    /* Validation */
+    if(!validateAddProduct(name, price, amount)) {
+        return 0;
+    }
+
     const newProduct = new Product(name, price, amount);
     productList.push(newProduct);
 
@@ -150,6 +155,29 @@ function loadDataFromLocalStorage() {
     if(typeof localStorage !== 'undefined' && localStorage.getItem('product list') != 'undefined'){
         productList = JSON.parse(localStorage.getItem('product list'));
     }
+}
+
+
+function validateAddProduct(name, price, amount) {
+    const message = document.getElementById('form_message');
+    message.innerText = '';
+    
+    const priceReg = /^\d+$/;
+
+    try{
+        if(name == null || name == '') throw 'name field is empty';
+        else if(price == null || price == NaN || price == '') throw 'price field is empty'
+        else if(!priceReg.test(price)) throw 'price is not a number'
+        else if(amount == null || amount == NaN || amount == '') throw 'amount field is empty'
+        else if(!priceReg.test(amount)) throw 'amount is not a number'
+    }
+    catch(err) {
+        message.innerText = err;
+        return false;
+    }
+
+    return true;
+    
 }
 
 /** MAIN **/

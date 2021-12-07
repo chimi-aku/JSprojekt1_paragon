@@ -28,6 +28,14 @@ main {
     
 }
 
+#form_message {
+    position:absolute;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: red;
+}
+
 .add_section {
     display: flex;
     justify-content: space-around;
@@ -43,7 +51,9 @@ main {
 .add_section label {
     text-transform: uppercase;
     margin-right: 7px;
-    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    /*font-family: 'Poppins', sans-serif;*/
+    margin-top: 2rem;
 }
 
 .add_section input {
@@ -58,7 +68,8 @@ main {
     -o-border-radius: 5px;
     -ms-border-radius: 5px;
     font-size: 1.5rem;
-    font-family: 'Poppins', sans-serif;
+    /*font-family: 'Poppins', sans-serif; */
+    
 }
 
 button {
@@ -104,7 +115,7 @@ button {
 
 .list .product_labels p {
     grid-row: 1;
-
+    border-bottom: gray 2px solid !important;
 }
 
 .list li {
@@ -113,6 +124,7 @@ button {
     justify-content: center;
     align-items: center;
 }
+
 
 .product_labels {
     font-weight: bold;

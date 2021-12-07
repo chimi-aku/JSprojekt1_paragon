@@ -16,18 +16,19 @@
 </head>
 <body>
     <main>
+        <p id="form_message"></p>
         <section class="add_section">
             <dib>
                 <label for="add_product_name">Name:</label>
-                <input type="text" id="add_product_name">
+                <input type="text" id="add_product_name" required>
             </dib>
             <div>
                 <label for="add_product_price">Price:</label>
-                <input type="text" id="add_product_price">
+                <input type="text" id="add_product_price" required>
             </div>
             <div>
                 <label for="add_product_amount">amount:</label>
-                <input type="number" id="add_product_amount">
+                <input type="number" id="add_product_amount" required>
             </div>
             <button class="add_product_btn">add</button>
         </section>
@@ -39,7 +40,7 @@
                     <p class="product_label product_label_price">price</p>
                     <p class="product_label product_label_amount">amount</p>
                     <p class="product_label product_label_sum">sum</p>
-                    <p class="product_label product_label_delete"></p>
+                    <span class="product_label product_label_delete"></span>
                 </li>
 
 
