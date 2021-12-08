@@ -50,6 +50,10 @@ function showProducts() {
     console.log(productList);
     let i = 1;
 
+    if(productList.length == 0) {
+        return 0;
+    }
+
     for(const product of productList){
         // productElement - product li HTML element
         // product object of Product class cointaing data
