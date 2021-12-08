@@ -17,6 +17,7 @@ class Product {
 }
 
 let productList = [new Product('cola', 2.49, 3)];
+updateLocalStorage();
 
 function showProducts() {
     const paragon = document.querySelector('.paragon');
@@ -49,8 +50,6 @@ function showProducts() {
 
     console.log(productList);
     let i = 1;
-
-
 
     if(productList == null) {
         return 0;
