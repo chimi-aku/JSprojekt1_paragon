@@ -12,7 +12,7 @@ class Product {
         this.name = name;
         this.price = price;
         this.amount = amount;
-        this.sum = price * amount;
+        this.sum = Math.round((price * amount + Number.EPSILON) * 100) / 100;
     }
 }
 
