@@ -284,10 +284,8 @@ function validateAddProduct(name, price, amount) {
         if(name == null || name == '') throw 'name field is empty';
         else if(parseFloat(price) <= 0) throw 'price is not positive number'
         else if(price == null || price == NaN || price == '') throw 'price field is empty'
-        else if(!priceReg.test(price)) throw 'price is not a number'
         else if(parseInt(amount, 10) <= 0) throw 'amount is not positive number'
         else if(amount == null || amount == NaN || amount == '') throw 'amount field is empty'
-        else if(!priceReg.test(amount)) throw 'amount is not a number'
     }
     catch(err) {
         message.innerText = err;
