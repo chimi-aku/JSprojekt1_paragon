@@ -1,7 +1,11 @@
 const addSection = document.querySelector('.add_section');
 const addProductBtn = addSection.querySelector('.add_product_btn');
 addProductBtn.addEventListener('click', addProduct);
-
+window.addEventListener('keypress', (e) =>  {
+    if (e.key === 'Enter') {
+        addProduct();
+    }
+});
 
 class Product {
     constructor(name, price, amount){
@@ -63,7 +67,9 @@ function showProducts() {
         for(prop in product) {
             const p = document.createElement('p');
             p.textContent = product[prop];
+            if(prop == 'price' || prop == 'sum') p.textContent += 'zł';
             p.classList.add('product_property');
+            p.classList.add(prop);
             productElement.appendChild(p);
         }
 
@@ -73,7 +79,13 @@ function showProducts() {
         deleteBtn.classList.add('delete_btn');
         deleteBtn.textContent = 'delete';
         buttonsDiv.appendChild(deleteBtn);
-
+        
+        /*
+        const editBtn = document.createElement('button');
+        editBtn.classList.add('edit_btn');
+        editBtn.textContent = 'edit';
+        buttonsDiv.appendChild(editBtn);
+        */
         const arrowUpBtn = document.createElement('i');
         arrowUpBtn.classList.add('arrow');
         arrowUpBtn.classList.add('up');
@@ -113,19 +125,18 @@ function showProducts() {
         sum += item.sum;
     }
     const totalSum = document.createElement('p');
-    totalSum.textContent = sum;
+    totalSum.textContent = sum + 'zł';
     summary.appendChild(totalSum);
     
     list.appendChild(summary);
 
     listenDeleteBtns();
+    listenEditBtns();
     listenUpArrows();
     listenDownArrows();
 }
 
 function addProduct() {
-    console.log('add p');
-
     const inputProductName = addSection.querySelector('#add_product_name');
     const inputProductPrice = addSection.querySelector('#add_product_price');
     const inputProductAmount = addSection.querySelector('#add_product_amount');
@@ -175,6 +186,22 @@ function listenDeleteBtns() {
     /* set listening on delete Task btns */
     deleteTaskBtns = document.querySelectorAll('.delete_btn').forEach(btn =>
     btn.addEventListener('click', deleteProduct));
+}
+
+function editProduct(e) {
+    console.log('edit');
+    const id = parseInt(e.target.parentNode.parentNode.firstChild.textContent, 10);
+    const index = id - 1;
+    const productToEdit = productList[index];
+    console.log(productList[index]);
+
+    const productEl = e.target.parentNode.parentNode;
+}
+
+function listenEditBtns() {
+    /* set listening on edit Task btns */
+    editTaskBtns = document.querySelectorAll('.edit_btn').forEach(btn =>
+    btn.addEventListener('click', editProduct));
 }
 
 function swapProducts(product1Idx, product2Idx) {
