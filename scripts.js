@@ -148,8 +148,8 @@ function addProduct() {
     const inputProductAmount = addSection.querySelector('#add_product_amount');
 
     const name = inputProductName.value;
-    const price = inputProductPrice.value;
-    const amount = inputProductAmount.value;
+    const price = parseInt(inputProductPrice.value, 10);
+    const amount = parseInt(inputProductAmount.value, 10);
 
     /* Validation */
     if(!validateAddProduct(name, price, amount)) {
