@@ -16,7 +16,7 @@ class Product {
     }
 }
 
-let productList = new Array();
+let productList = [new Product('cola', 2.49, 3)];
 
 function showProducts() {
     const paragon = document.querySelector('.paragon');
