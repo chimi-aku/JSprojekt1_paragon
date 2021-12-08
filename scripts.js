@@ -147,7 +147,7 @@ function addProduct() {
     const inputProductAmount = addSection.querySelector('#add_product_amount');
 
     const name = inputProductName.value;
-    const price = parseFloat(inputProductPrice.value, 10);
+    const price = parseFloat(inputProductPrice.value);
     const amount = parseInt(inputProductAmount.value, 10);
 
     /* Validation */
@@ -282,7 +282,7 @@ function validateAddProduct(name, price, amount) {
 
     try{
         if(name == null || name == '') throw 'name field is empty';
-        else if(parseFloat(price, 10) <= 0) throw 'price is not positive number'
+        else if(parseFloat(price) <= 0) throw 'price is not positive number'
         else if(price == null || price == NaN || price == '') throw 'price field is empty'
         else if(!priceReg.test(price)) throw 'price is not a number'
         else if(parseInt(amount, 10) <= 0) throw 'amount is not positive number'
