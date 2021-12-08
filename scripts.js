@@ -16,7 +16,7 @@ class Product {
     }
 }
 
-let productList = [];
+let productList = new Array();
 
 function showProducts() {
     const paragon = document.querySelector('.paragon');
@@ -301,6 +301,8 @@ function validateAddProduct(name, price, amount) {
 
 /** MAIN **/
 loadDataFromLocalStorage();
+
+console.log(productList);
 showProducts();
 
 
