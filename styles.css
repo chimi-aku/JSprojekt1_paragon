@@ -124,6 +124,8 @@ button {
     border-bottom: gray 2px solid !important;
 }
 
+
+
 .list li {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -131,6 +133,18 @@ button {
     align-items: center;
 }
 
+.list li:nth-last-child(2) p {
+    border-bottom: gray 2px solid !important;
+}
+/*
+.list li:nth-child(2n) {
+    background: red;
+}
+
+.list li:nth-child(2n-1){
+    background: blue;
+}
+*/
 
 .product_labels {
     font-weight: bold;
@@ -161,6 +175,8 @@ button {
 .list .product_label_delete {
     grid-column: 6;
 }
+
+
 
 .arrow {
     border: solid black;

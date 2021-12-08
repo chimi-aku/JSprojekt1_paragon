@@ -93,6 +93,31 @@ function showProducts() {
 
     }
 
+    /* displaying summary */
+
+    const summary = document.createElement('li');
+    summary.classList.add('summary');
+    
+    for(let j = 0; j < 3; j++) {
+        const p = document.createElement('p');
+        summary.appendChild(p);
+    }
+
+    const totalText = document.createElement('p');
+    totalText.textContent = 'total:';
+    summary.appendChild(totalText);
+
+    let sum = 0;
+    for (const item of productList) {
+        console.log(typeof item.sum);
+        sum += item.sum;
+    }
+    const totalSum = document.createElement('p');
+    totalSum.textContent = sum;
+    summary.appendChild(totalSum);
+    
+    list.appendChild(summary);
+
     listenDeleteBtns();
     listenUpArrows();
     listenDownArrows();
