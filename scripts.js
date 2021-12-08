@@ -52,7 +52,7 @@ function showProducts() {
 
 
 
-    if(productList.length == 0 || productList == null) {
+    if(productList == null) {
         return 0;
     }
 
