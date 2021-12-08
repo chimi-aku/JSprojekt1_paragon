@@ -16,7 +16,7 @@ class Product {
     }
 }
 
-let productList = [new Product('cola', 2.49, 3)];
+let productList = [];
 updateLocalStorage();
 
 function showProducts() {
