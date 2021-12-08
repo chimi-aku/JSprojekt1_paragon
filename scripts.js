@@ -50,7 +50,9 @@ function showProducts() {
     console.log(productList);
     let i = 1;
 
-    if(productList.length == 0) {
+
+
+    if(productList.length == 0 || productList == null) {
         return 0;
     }
 
