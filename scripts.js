@@ -47,8 +47,6 @@ function showProducts() {
 
 
     /* displaying products */
-
-    console.log(productList);
     let i = 1;
 
     if(productList == null) {
@@ -273,11 +271,8 @@ function updateLocalStorage() {
 }
 
 function loadDataFromLocalStorage() {
-    if(localStorage == null) {
-        console.log('local storage is null')
-    }
 
-    if(typeof localStorage !== 'undefined' && localStorage.getItem('product list') != 'undefined'){
+    if(typeof localStorage !== 'undefined' && localStorage.getItem('product list') != null){
         productList = JSON.parse(localStorage.getItem('product list'));
         console.log(productList);
     }
