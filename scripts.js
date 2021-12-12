@@ -225,7 +225,10 @@ function moveProductUp(e) {
     //console.log(productList[index]);
 
     swapProducts(index, index - 1)
+    updateLocalStorage()
     showProducts();
+
+
 }
 
 function listenUpArrows() {
@@ -245,7 +248,8 @@ function moveProductDown(e) {
     const index = id - 1;
     //console.log(productList[index]);
 
-    swapProducts(index, index + 1)
+    swapProducts(index, index + 1);
+    updateLocalStorage();
     showProducts();
 }
 
@@ -304,5 +308,3 @@ function validateAddProduct(name, price, amount) {
 /** MAIN **/
 loadDataFromLocalStorage();
 showProducts();
-
-
