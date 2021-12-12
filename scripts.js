@@ -17,7 +17,7 @@ class Product {
 }
 
 let productList = [];
-updateLocalStorage();
+
 
 function showProducts() {
     const paragon = document.querySelector('.paragon');
@@ -167,7 +167,7 @@ function addProduct() {
     inputProductAmount.value = '';
 
     // Local storage to do
-
+    console.log('show products: ', productList)
     updateLocalStorage();
 
 
@@ -217,10 +217,10 @@ function swapProducts(product1Idx, product2Idx) {
 
 function moveProductUp(e) {
     //console.log('move up');
-    //console.log(e.target.parentNode.parentNode);
+    console.log(e.target.parentNode.parentNode);
 
     const id = parseInt(e.target.parentNode.parentNode.firstChild.textContent, 10);
-    if(id < 1) {
+    if(id <= 1) {
         return 0;
     }
     const index = id - 1;
@@ -261,15 +261,25 @@ function listenDownArrows() {
 /** Local storage **/
 
 function updateLocalStorage() {
+    console.log("local storage update: ", productList)
+
     if(typeof localStorage !== 'undefined'){
-        localStorage.removeItem('product list');
+        //localStorage.removeItem('product list');
+        localStorage.setItem('product list', JSON.stringify(productList));
+    }
+    else {
         localStorage.setItem('product list', JSON.stringify(productList));
     }
 }
 
 function loadDataFromLocalStorage() {
+    if(localStorage == null) {
+        console.log('local storage is null')
+    }
+
     if(typeof localStorage !== 'undefined' && localStorage.getItem('product list') != 'undefined'){
         productList = JSON.parse(localStorage.getItem('product list'));
+        console.log(productList);
     }
 }
 
@@ -298,8 +308,6 @@ function validateAddProduct(name, price, amount) {
 
 /** MAIN **/
 loadDataFromLocalStorage();
-
-console.log(productList);
 showProducts();
 
 
