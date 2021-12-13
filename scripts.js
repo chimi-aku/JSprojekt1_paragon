@@ -288,13 +288,15 @@ function validateAddProduct(name, price, amount) {
     message.innerText = '';
     
     const priceReg = /^\d+$/;
+    console.log('price', price);
+    console.log('amount', amount);
 
     try{
         if(name == null || name == '') throw 'name field is empty';
+        else if(price == null || isNaN(price) || price == '') throw 'price field is empty'
+        else if(amount == null || isNaN(amount)|| amount == '') throw 'amount field is empty'
         else if(parseFloat(price) <= 0) throw 'price is not positive number'
-        else if(price == null || price == NaN || price == '') throw 'price field is empty'
         else if(parseInt(amount, 10) <= 0) throw 'amount is not positive number'
-        else if(amount == null || amount == NaN || amount == '') throw 'amount field is empty'
     }
     catch(err) {
         message.innerText = err;
